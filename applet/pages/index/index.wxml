@@ -1,5 +1,5 @@
 <!--index.wxml-->
 <view class="container">
-  购物车
-  <text class='iconfont icon-gouwuche '></text>
+  hello word
+  <text class="iconfont icon--gouwuche"></text>
 </view>
