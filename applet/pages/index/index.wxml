@@ -1,11 +1,12 @@
 <!--index.wxml-->
-<page>
-  <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
-    <view slot="backText">返回</view>
+<view>
+  <cu-custom bgColor="bg-gradual-pink" >
     <view slot="content">首页</view>
   </cu-custom>
+  <!-- 搜索框 -->
+  <searchInput></searchInput>
   <view class="container">
     hello word
     <text class="iconfont icon--gouwuche"></text>
   </view>
-</page>
+</view>

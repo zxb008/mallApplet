@@ -11,7 +11,7 @@ page,view,text,swiper,swiper-item,image,navigator{
   box-sizing: border-box;
 }
 /* 原生的css和wxss中是支持变量的 */
-page{
+view{
   /* 主题颜色 */
   --themeColor:#EE2C2C;
 }
