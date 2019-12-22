@@ -1,0 +1,43 @@
+.nav{
+  display: flex;
+  
+  .nav_item{
+    flex: 1;
+    padding: 10rpx;
+    image{
+      width: 100%;
+      //这是因为图片设置了缩放模式，只要设置width就行 
+      // height: 100%;
+    }
+  }
+}
+
+.floor{
+  .floor_title{
+    padding: 10rpx;
+    image{
+      width: 100%;
+    }
+  }
+  .floor_list{
+    overflow: hidden;
+    navigator{
+      float: left;
+      width: 33.33%;
+      &:nth-last-child(-n+4){
+        //后四个的navigator
+        // 232 / 386 = 33.33vw / height
+        height: 33.33vw * 386 / 232 / 2;
+        border-left: 10rpx solid #ffffff 
+      }
+      &:nth-child(2),
+      &:nth-child(3){
+        border-bottom: 10rpx solid #ffffff 
+      }
+      image{
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+}

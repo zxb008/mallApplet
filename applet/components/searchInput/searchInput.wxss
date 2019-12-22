@@ -1,0 +1,6 @@
+
+@import "../../colorui/main.wxss";
+@import "../../colorui/icon.wxss";
+.box{
+  height: 90rpx;
+}
