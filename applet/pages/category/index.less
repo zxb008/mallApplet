@@ -1,0 +1,19 @@
+page{
+  height: 100%;
+}
+.cate{
+  display: flex;
+  height: ~'calc(100vh - 90rpx)';
+  //伸缩布局子元素的高度默认父元素的100%
+  .left_cate_item{
+    flex: 1;
+    view{
+      text-align: center;
+      padding: 15rpx 0;
+    }
+  }
+  .right_cate_item{
+    flex: 4;
+    background-color: green;
+  }
+}

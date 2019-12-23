@@ -1,2 +1,16 @@
-<!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<view >
+  <cu-custom bgColor="bg-gradual-red">
+    <view slot="content">商品分类</view>
+  </cu-custom>
+  <!-- 搜索框 -->
+  <searchInput></searchInput>
+  <!-- 二级联动 -->
+  <view class="cate">
+    <scroll-view class="left_cate_item" scroll-y>
+      <view wx:for="{{leftMenuList}}" wx:key="index">{{item}}</view>
+    </scroll-view>
+    <scroll-view class="right_cate_item" scroll-y>
+
+    </scroll-view>
+  </view>
+</view>

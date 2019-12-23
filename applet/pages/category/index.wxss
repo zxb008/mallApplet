@@ -1,1 +1,18 @@
-/* pages/category/index.wxss */
+page {
+  height: 100%;
+}
+.cate {
+  display: flex;
+  height: calc(100vh - 90rpx);
+}
+.cate .left_cate_item {
+  flex: 1;
+}
+.cate .left_cate_item view {
+  text-align: center;
+  padding: 15rpx 0;
+}
+.cate .right_cate_item {
+  flex: 4;
+  background-color: green;
+}
