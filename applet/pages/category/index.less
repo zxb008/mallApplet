@@ -6,17 +6,45 @@ page{
   height: ~'calc(100vh - 90rpx)';
   //伸缩布局子元素的高度默认父元素的100%
   .left_cate_item{
-    flex: 1;
+    flex: 2;
     view{
-      text-align: center;
-      padding: 15rpx 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 80rpx;
+     font-size: 30rpx
+    }
+    .active{
+      color: var(--themeColor);
+      border-right: 10rpx solid var(--themeColor);
     }
   }
   .right_cate_item{
-    flex: 4;
-    background-color: green;
+    flex: 5;
     .right_contain{
-      
+
+      .title{
+        height: 80rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+        .list{
+          display: flex;
+          flex-wrap:wrap;
+          navigator{
+            width: 33.33%;
+            text-align: center;
+            image{
+              width: 90%;
+              border-radius: 5%;
+            }
+            .text{
+              color: #666666;
+              font-size: 25rpx;
+            }
+          }
+        }
     }
   }
 }
