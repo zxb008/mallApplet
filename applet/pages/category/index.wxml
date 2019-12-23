@@ -1,4 +1,4 @@
-<view >
+<view>
   <cu-custom bgColor="bg-gradual-red">
     <view slot="content">商品分类</view>
   </cu-custom>
@@ -10,7 +10,16 @@
       <view wx:for="{{leftMenuList}}" wx:key="index">{{item}}</view>
     </scroll-view>
     <scroll-view class="right_cate_item" scroll-y>
-
+      <view class="right_contain" wx:for="{{rightContainList}}" wx:key="cat_id" wx:for-item="item1" wx:for-index="index1">
+        <view class="title">{{item1.cat_name}}</view>
+        <view class="list" wx:for="{{item1.children}}" wx:key="cat_id" wx:for-item="item2" wx:for-index="index2"></view>
+        <navigator url="" redirect hover-class="className">
+          <image src="{{item2.cat_icon}}" />
+        </navigator>
+        <view>
+          {{item2.cat_name}}
+        </view>
+      </view>
     </scroll-view>
   </view>
 </view>

@@ -50,6 +50,13 @@
 					"id": -1,
 					"name": "pages/category/index",
 					"pathName": "pages/category/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/category/index",
+					"pathName": "pages/category/index",
 					"scene": null
 				}
 			]
