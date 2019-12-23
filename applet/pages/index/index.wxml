@@ -1,12 +1,14 @@
 <!--index.wxml-->
 <view>
-  <cu-custom bgColor="bg-gradual-pink" >
+  <cu-custom bgColor="bg-gradual-pink">
     <view slot="content">首页</view>
   </cu-custom>
   <!-- 搜索框 -->
   <searchInput></searchInput>
-  <view class="container">
-    hello word
-    <text class="iconfont icon--gouwuche"></text>
-  </view>
+  <!-- 轮播 -->
+  <swiper class="screen-swiper square-dot}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+    <swiper-item wx:for="{{swiperList}}" wx:key>
+      <image src="{{item.image_src}}" mode="aspectFill"></image>
+    </swiper-item>
+  </swiper>
 </view>

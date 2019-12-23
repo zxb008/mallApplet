@@ -13,5 +13,5 @@ page,view,text,swiper,swiper-item,image,navigator{
 /* 原生的css和wxss中是支持变量的 */
 view{
   /* 主题颜色 */
-  --themeColor:#EE2C2C;
+  --themeColor:#D52BB3;
 }
