@@ -3,7 +3,7 @@
     <view class="cu-avatar round" style="background-image:url(https://image.weilanwl.com/img/square-2.jpg);"></view>
     <view class="search-form round">
       <text class="cuIcon-search"></text>
-      <navigator url="pages/search/index" open_type="navigate">
+      <navigator url="/pages/search/index" open_type="navigate">
         搜索
       </navigator>
     </view>
