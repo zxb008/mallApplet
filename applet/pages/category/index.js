@@ -1,5 +1,5 @@
 // pages/category/index.js
-import regeneratorRuntime from '../../lib/runtime/runtime'
+// import regeneratorRuntime from '../../lib/runtime/runtime'
 // const regeneratorRuntime = require('../../lib/runtime/runtime')
 import { request } from '../../request/index.js'
 Page({
@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loadModal:true,
     currIndex: 0,
     scrollTop: 0,
     leftMenuList: [],
@@ -36,50 +37,52 @@ Page({
         //赋值给left的菜单和右边的内容区
         this.setData({
           leftMenuList,
-          rightContainList
+          rightContainList,
+          loadModal:false
         })
       }
     }
 
   },
-  async getCates() {
-    // request({
-    //   url: '/categories',
-    //   method: 'GET'
-    // }).then((result) => {
-    //   //存入缓存
-    //   wx.setStorageSync('cates', { time: Date.now(), data: result })
-
-    //   this.setData({
-    //     cates: result
-    //   })
-    //   //下面这样写是错误的，除非是在data同级定义了一个  cates:[],但是这种定义的方式是无法渲染到页面上去的，只能在js的逻辑层使用
-    //   // console.log(this.cates);
-    //   let leftMenuList = this.data.cates.map(item => item.cat_name)
-    //   let rightContainList = this.data.cates[0].children
-    //   //赋值给left的菜单和右边的内容区
-    //   this.setData({
-    //     leftMenuList,
-    //     rightContainList
-    //   })
-    // })
-    const result = await request({
+   getCates() {
+    request({
       url: '/categories',
       method: 'GET'
+    }).then((result) => {
+      //存入缓存
+      wx.setStorageSync('cates', { time: Date.now(), data: result })
+
+      this.setData({
+        cates: result
+      })
+      //下面这样写是错误的，除非是在data同级定义了一个  cates:[],但是这种定义的方式是无法渲染到页面上去的，只能在js的逻辑层使用
+      // console.log(this.cates);
+      let leftMenuList = this.data.cates.map(item => item.cat_name)
+      let rightContainList = this.data.cates[0].children
+      //赋值给left的菜单和右边的内容区
+      this.setData({
+        leftMenuList,
+        rightContainList, 
+        loadModal:false
+      })
     })
-    wx.setStorageSync('cates', { time: Date.now(), data: result })
-    this.setData({
-      cates: result
-    })
-    //下面这样写是错误的，除非是在data同级定义了一个  cates:[],但是这种定义的方式是无法渲染到页面上去的，只能在js的逻辑层使用
-    // console.log(this.cates);
-    let leftMenuList = this.data.cates.map(item => item.cat_name)
-    let rightContainList = this.data.cates[0].children
-    //赋值给left的菜单和右边的内容区
-    this.setData({
-      leftMenuList,
-      rightContainList
-    })
+    // const result = await request({
+    //   url: '/categories',
+    //   method: 'GET'
+    // })
+    // wx.setStorageSync('cates', { time: Date.now(), data: result })
+    // this.setData({
+    //   cates: result
+    // })
+    // //下面这样写是错误的，除非是在data同级定义了一个  cates:[],但是这种定义的方式是无法渲染到页面上去的，只能在js的逻辑层使用
+    // // console.log(this.cates);
+    // let leftMenuList = this.data.cates.map(item => item.cat_name)
+    // let rightContainList = this.data.cates[0].children
+    // //赋值给left的菜单和右边的内容区
+    // this.setData({
+    //   leftMenuList,
+    //   rightContainList
+    // })
   },
   handActive(event) {
     this.setData({
