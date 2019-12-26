@@ -19,7 +19,7 @@
 				</view>
 			</view>
 
-      	<view class="cu-item ">
+			<view class="cu-item ">
 				<view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);" />
 				<view class="content">
 					<view class="text-pink">
@@ -31,7 +31,7 @@
 				</view>
 			</view>
 
-      	<view class="cu-item ">
+			<view class="cu-item ">
 				<view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);" />
 				<view class="content">
 					<view class="text-pink">
@@ -42,6 +42,7 @@
 					</view>
 				</view>
 			</view>
+      
 		</view>
 		<view wx:elif="{{id === 2}}">销量</view>
 		<view wx:elif="{{id === 3}}">价格</view>
