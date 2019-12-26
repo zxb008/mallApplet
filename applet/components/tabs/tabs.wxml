@@ -2,15 +2,16 @@
 	<scroll-view scroll-x class="bg-white nav">
 		<view class="flex text-center">
 			<view
-			 class="cu-item flex-sub {{index==TabCur?'text-orange cur':''}}"
-			 wx:for="{{4}}"
-			 wx:key
+			 class="cu-item flex-sub {{ item.active ?'text-orange cur':''}}"
+			 wx:for="{{propTabsList}}"
+			 wx:key="id"
 			 bindtap="tabSelect"
-			 data-id="{{index}}"
+			 data-id="{{item.id}}"
 			>
-				Tab{{index}}
+			{{item.label}}
 			</view>
 		</view>
 	</scroll-view>
+		<slot></slot>
 </view>
 
