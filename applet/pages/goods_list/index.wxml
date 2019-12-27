@@ -10,39 +10,15 @@
 			<view class="cu-item " style="margin-bottom:10rpx">
 				<view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);" />
 				<view class="content">
-					<view class="text-pink">
-						<text class="text-cut">莫甘娜</text>
-					</view>
+					
 					<view class="text-gray text-sm flex">
 						<text class="text-cut">凯尔，你被自己的光芒变的盲目！</text>
 					</view>
-				</view>
-			</view>
-
-			<view class="cu-item ">
-				<view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);" />
-				<view class="content">
-					<view class="text-pink">
-						<text class="text-cut">莫甘娜</text>
-					</view>
-					<view class="text-gray text-sm flex">
-						<text class="text-cut">凯尔，你被自己的光芒变的盲目！</text>
+          <view class="text-pink">
+						<text class="text-cut" style="color:#F33942">莫甘娜</text>
 					</view>
 				</view>
 			</view>
-
-			<view class="cu-item ">
-				<view class="cu-avatar radius lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);" />
-				<view class="content">
-					<view class="text-pink">
-						<text class="text-cut">莫甘娜</text>
-					</view>
-					<view class="text-gray text-sm flex">
-						<text class="text-cut">凯尔，你被自己的光芒变的盲目！</text>
-					</view>
-				</view>
-			</view>
-      
 		</view>
 		<view wx:elif="{{id === 2}}">销量</view>
 		<view wx:elif="{{id === 3}}">价格</view>

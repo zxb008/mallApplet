@@ -1,36 +1,58 @@
 <view>
-  <cu-custom bgColor="bg-gradual-red">
-    <view slot="content">商品分类</view>
-  </cu-custom>
-  <!-- 搜索框 -->
-  <searchInput></searchInput>
-  <!-- 加载弹框 -->
-  <view class='cu-load load-modal' wx:if="{{loadModal}}">
-  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
-  <image src='../../images/logo.png' class='png' mode='aspectFit'></image>
-  <view class='gray-text'>加载中...</view>
-</view>
-  <!-- 二级联动 -->
-  <view class="cate">
-    <scroll-view class="left_cate_item" scroll-y >
-      <view bindtap="handActive" data-curr-index="{{index}}" class="{{index === currIndex ? 'active' : ''}}" wx:for="{{leftMenuList}}" wx:key="index">{{item}}</view>
-    </scroll-view>
-    <scroll-view class="right_cate_item" scroll-y scroll-top="{{scrollTop}}">
-      <view class="right_contain" wx:for="{{rightContainList}}" wx:key="cat_id" wx:for-item="item1"
-        wx:for-index="index1">
-        <view class="title">{{item1.cat_name}}</view>
-        <view class="list">
-          <navigator url="/pages/goods_list/index?cid={{item2.cat_id}}" open_type="navigator" wx:for="{{item1.children}}" wx:key="cat_id" wx:for-item="item2"
-            wx:for-index="index2">
-            <image mode="widthFix" src="{{item2.cat_icon}}" />
-            <view class="text">
-              {{item2.cat_name}}
-            </view>
-          </navigator>
+	<cu-custom bgColor="bg-gradual-red">
+		<view slot="content">商品分类</view>
+	</cu-custom>
+	<!-- 搜索框 -->
+	<searchInput/>
 
-        </view>
+	<!-- 加载弹框 -->
+	<!--
+	<view class='cu-load load-modal' wx:if="{{loadModal}}">
+		<image src='../../images/logo.png' class='png' mode='aspectFit' />
+		<view class='gray-text'>加载中...</view>
+	</view>
+	-->
 
-      </view>
-    </scroll-view>
-  </view>
+	<!-- 二级联动 -->
+	<view class="cate">
+		<scroll-view class="left_cate_item" scroll-y>
+			<view
+			 bindtap="handActive"
+			 data-curr-index="{{index}}"
+			 class="{{index === currIndex ? 'active' : ''}}"
+			 wx:for="{{leftMenuList}}"
+			 wx:key="index"
+			>{{item}}
+			</view>
+		</scroll-view>
+		<scroll-view class="right_cate_item" scroll-y scroll-top="{{scrollTop}}">
+			<view
+			 class="right_contain"
+			 wx:for="{{rightContainList}}"
+			 wx:key="cat_id"
+			 wx:for-item="item1"
+			 wx:for-index="index1"
+			>
+				<view class="title">{{item1.cat_name}}</view>
+				<view class="list">
+					<navigator
+					 url="/pages/goods_list/index?cid={{item2.cat_id}}"
+					 open_type="navigator"
+					 wx:for="{{item1.children}}"
+					 wx:key="cat_id"
+					 wx:for-item="item2"
+					 wx:for-index="index2"
+					>
+						<image mode="widthFix" src="{{item2.cat_icon}}" />
+						<view class="text">
+							{{item2.cat_name}}
+						</view>
+					</navigator>
+
+				</view>
+
+			</view>
+		</scroll-view>
+	</view>
 </view>
+

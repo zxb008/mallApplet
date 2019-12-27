@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    loadModal:true,
+    // loadModal:true,
     currIndex: 0,
     scrollTop: 0,
     leftMenuList: [],
@@ -38,7 +38,7 @@ Page({
         this.setData({
           leftMenuList,
           rightContainList,
-          loadModal:false
+          // loadModal:false
         })
       }
     }
@@ -46,8 +46,7 @@ Page({
   },
    getCates() {
     request({
-      url: '/categories',
-      method: 'GET'
+      url: '/categories'
     }).then((result) => {
       //存入缓存
       wx.setStorageSync('cates', { time: Date.now(), data: result })
@@ -63,7 +62,7 @@ Page({
       this.setData({
         leftMenuList,
         rightContainList, 
-        loadModal:false
+        // loadModal:false
       })
     })
     // const result = await request({
