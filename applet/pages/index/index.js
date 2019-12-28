@@ -24,8 +24,7 @@ Page({
   },
   getSwiper(){
     request({
-      url:'/home/swiperdata',
-      method:'GET'
+      url:'/home/swiperdata'
     }).then((result)=>{
       this.setData({
         swiperList: result.reverse()
@@ -34,8 +33,7 @@ Page({
   },
   getNavigation(){
     request({
-      url: '/home/catitems',
-      method: 'GET'
+      url: '/home/catitems'
     }).then((result) => {
       this.setData({
         navigationList: result
@@ -44,8 +42,7 @@ Page({
   },
   getFloor(){
     request({
-      url:'/home/floordata',
-      method:'GET'
+      url:'/home/floordata'
     }).then((result)=>{
       this.setData({
         floorList: result.reverse()
