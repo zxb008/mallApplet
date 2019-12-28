@@ -4,6 +4,7 @@ export const request = (params) => {
   requestCount++
   wx.showLoading({
     title: '加载中',
+    mask:true
   })
   return new Promise((resolve, reject) => {
     wx.request({
