@@ -1,1 +1,42 @@
-/* pages/goods_detail/index.wxss */
+.price_row {
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 10rpx solid white;
+}
+.price_row .price {
+  flex: 4;
+  color: var(--themeColor);
+}
+.price_row .see {
+  flex: 1;
+  letter-spacing: 5rpx;
+  color: #666666;
+}
+.name_row {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 10rpx solid white;
+}
+.name_row .name {
+  flex: 4;
+  overflow: hidden;
+  white-space: wrap;
+  text-overflow: ellipsis;
+}
+.name_row .collect {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.foot {
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+}

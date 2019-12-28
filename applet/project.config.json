@@ -66,6 +66,13 @@
 					"pathName": "pages/goods_list/index",
 					"query": "cid=5",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/goods_detail/index",
+					"pathName": "pages/goods_detail/index",
+					"query": "gid=43986",
+					"scene": null
 				}
 			]
 		}

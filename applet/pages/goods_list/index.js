@@ -56,6 +56,12 @@ Page({
     pagenum: 1,
     pagesize: 10
   },
+  //跳转页面
+  navigatorGoodDetail(e){
+    wx.navigateTo({
+      url: '/pages/goods_detail/index?gid='+e.currentTarget.dataset.gid,
+    })
+  },
   //获取商品列表
   getGoodList() {
     request({

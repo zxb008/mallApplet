@@ -1,18 +1,54 @@
 // pages/goods_detail/index.js
+import { request } from '../../request/index.js'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    modalName: null,
+    goods_detail: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  params: {
+    goods_id: null
+  },
+  imageList:[],
+  getGoodDetail() {
+    request({
+      url: '/goods/detail',
+      data: this.params
+    }).then((result) => {
+      this.imageList = result.pics
+      result.goods_introduce = result.goods_introduce.replace(/\.webp/g, '.jpg')
+      this.setData({
+        goods_detail: result
+      })
+    })
+  },
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
+  handlePrevireImage(e) {
+    const urls = this.imageList.map(item => item.pics_mid_url)
+    wx.previewImage({
+      current: e.currentTarget.dataset.url, // 当前显示图片的http链接
+      urls // 需要预览的图片http链接列表
+    })
+  },
   onLoad: function (options) {
-
+    this.params.goods_id = options.gid
+    this.getGoodDetail()
   },
 
   /**

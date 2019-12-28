@@ -1,2 +1,70 @@
-<!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<view>
+		<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+				<view slot="backText">返回</view>
+				<view slot="content">商品列表</view>
+		</cu-custom>
+		<!-- 搜索框 -->
+		<searchInput />
+		<!-- 轮播图 -->
+		<swiper class="screen-swiper 'square-dot'" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+				<swiper-item wx:for="{{goods_detail.pics}}" wx:key="pics_id" bind:tap="handlePrevireImage" data-url="{{item.pics_mid_url}}">
+						<image src="{{item.pics_mid_url}}" mode="aspectFill"></image>
+				</swiper-item>
+		</swiper>
+		<view class="price_row">
+				<view class="price">￥{{goods_detail.goods_price}}</view>
+				<view class="see" bindtap="showModal" data-target="bottomModal">查看详情></view>
+		</view>
+		<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+				<view class="cu-dialog">
+						<view class="cu-bar bg-white">
+								<view class="action text-green">确定</view>
+								<view class="action text-blue" bindtap="hideModal">取消</view>
+						</view>
+						<view class="cu-list menu">
+								<view class="cu-item">
+										<view class="content">
+												<text class="text-grey">
+														剩余数量:{{goods_detail.goods_number?goods_detail.goods_number:1000}}
+												</text>
+										</view>
+								</view>
+								<view class="cu-item">
+										<view class="content">
+												<text class="text-grey">
+														重量:{{goods_detail.goods_weight?goods_detail.goods_weight:100}}kg
+												</text>
+										</view>
+								</view>
+						</view>
+				</view>
+		</view>
+		<view class="name_row">
+				<view class="name">{{goods_detail.goods_name}}</view>
+				<view class="collect">
+						<text class="iconfont icon-collect"></text>
+						<text>收藏</text>
+				</view>
+		</view>
+		<view>
+				<rich-text nodes="{{goods_detail.goods_introduce}}" bindtap="tap"></rich-text>
+		</view>
+		<view class="foot">
+				<view class="cu-bar bg-white tabbar border shop">
+						<button class="action" open-type="contact">
+								<view class="cuIcon-service text-green">
+										<view class="cu-tag badge"></view>
+								</view>
+								客服
+						</button>
+						<view class="action">
+								<view class="cuIcon-cart">
+										<view class="cu-tag badge">99</view>
+								</view>
+								购物车
+						</view>
+						<view class="bg-orange submit">加入购物车</view>
+						<view class="bg-red submit">立即订购</view>
+				</view>
+		</view>
+</view>
