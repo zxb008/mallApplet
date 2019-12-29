@@ -1,4 +1,9 @@
 // pages/cart/index.js
+import {
+  wxGetSetting,
+  wxAddress,
+  wxOpenSetting
+} from '../../utils/index'
 Page({
 
   /**
@@ -7,7 +12,18 @@ Page({
   data: {
 
   },
+  getAddress() {
+    wxGetSetting().then((result1) => {
+      const scopeAddress = result1.authSetting['scope.address']
+      if (scopeAddress === false) {
+        wxOpenSetting();
+      }
+      wxAddress().then((result2)=>{
+        wx.setStorageSync('address', result2)
+      })
+    })
 
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,2 +1,7 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view>
+  <cu-custom bgColor="bg-gradual-red">
+    <view slot="content">购物车</view>
+  </cu-custom>
+  <button class="cu-btn block line-orange lg" bind:tap="getAddress">获取收货地址</button>
+  <cartShop></cartShop>
+</view>

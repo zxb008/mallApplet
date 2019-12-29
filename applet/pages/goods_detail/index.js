@@ -16,7 +16,7 @@ Page({
   params: {
     goods_id: null
   },
-  imageList:[],
+  imageList: [],
   getGoodDetail() {
     request({
       url: '/goods/detail',
@@ -46,10 +46,29 @@ Page({
       urls // 需要预览的图片http链接列表
     })
   },
-  navigatorCart(e){
+  navigatorCart(e) {
     wx.switchTab({
       url: '/pages/cart/index'
     })
+  },
+  addShop() {
+    //添加购物车，购物车肯定是一个对象数组
+    let carts = wx.getStorageSync('carts') || []
+    let index = carts.findIndex(cart => cart.goods_id === this.data.goods_detail.goods_id)
+    if (index !== -1) {
+      carts[index].num++
+      this.setData({
+        goods_detail: carts[index]
+      })
+    } else {
+      let { goods_detail } = this.data
+      goods_detail.num = 1
+      this.setData({
+        goods_detail
+      })
+      carts.push(goods_detail)
+    }
+    wx.setStorageSync('carts', carts)
   },
   onLoad: function (options) {
     this.params.goods_id = options.gid

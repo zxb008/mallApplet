@@ -1,7 +1,7 @@
 <view>
 		<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
 				<view slot="backText">返回</view>
-				<view slot="content">商品列表</view>
+				<view slot="content">商品详情</view>
 		</cu-custom>
 		<!-- 搜索框 -->
 		<searchInput />
@@ -57,7 +57,7 @@
 								</view>
 								客服
 						</button>
-							<button class="action" open-type="contact">
+						<button class="action" open-type="contact">
 								<view class="cuIcon-service text-green">
 										<view class="cu-tag badge"></view>
 								</view>
@@ -65,11 +65,11 @@
 						</button>
 						<view class="action" bind:tap="navigatorCart">
 								<view class="cuIcon-cart">
-										<view class="cu-tag badge">99</view>
+										<view class="cu-tag badge">{{goods_detail.num ? goods_detail.num:''}}</view>
 								</view>
 								购物车
 						</view>
-						<view class="bg-orange submit">加入购物车</view>
+						<view class="bg-orange submit" bind:tap="addShop">加入购物车</view>
 						<view class="bg-red submit">立即订购</view>
 				</view>
 		</view>

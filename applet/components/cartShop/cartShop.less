@@ -1,0 +1,62 @@
+.shop{
+  widows: 100%;
+  height: 180rpx;
+  display: flex;
+  background-color: #fff;
+  .check{
+    flex: 1.5;
+    display: flex;
+    flex-direction:column ;
+    justify-content: center;
+    align-items: center;
+  }
+  .img{
+    flex: 2.5;
+    display: flex;
+    flex-direction:column ;
+    justify-content: center;
+    align-items: center;
+    image{
+      width: 100%;
+    }
+  }
+  .desc{
+    flex: 6;
+    display: flex;
+    flex-wrap: wrap;
+    .name{
+      width: 100%;
+      height: 110rpx;
+      padding: 5rpx 5rpx;
+      overflow: hidden;
+      word-wrap: break-word;
+      text-overflow: ellipsis;
+      font-size: 25rpx;
+      color: #666666;
+      display: flex;
+      flex-direction:column ;
+      justify-content: center;
+      align-items: center;
+    }
+    .operating{
+      width: 100%;
+      height: 70rpx;
+      display: flex;
+      .price{
+        flex: 1;
+        color: var(--themeColor);
+        display: flex;
+        flex-direction:column ;
+        justify-content: center;
+        align-items: center;
+      }
+      .number{
+        flex: 1;
+        padding: 7rpx 0rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

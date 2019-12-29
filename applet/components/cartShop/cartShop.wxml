@@ -1,0 +1,21 @@
+<view class="shop">
+  <view class="check">
+    <checkbox-group >
+      <checkbox  />
+    </checkbox-group>
+  </view>
+  <view class="img">
+    <image mode="widthFix" src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071005.png"  />
+  </view>
+  <view class="desc">
+    <view class="name">和山东矿机爱好萨达四大四大是大分三个分大大大单位放弃无法返回任何人拖后腿</view>
+    <view class="operating">
+      <view class="price">￥1000</view>
+      <view class="number">
+        <button size="mini">-</button>
+        <view >1</view>
+         <button size="mini">+</button>
+      </view>
+    </view>
+  </view>
+</view>
