@@ -46,6 +46,11 @@ Page({
       urls // 需要预览的图片http链接列表
     })
   },
+  navigatorCart(e){
+    wx.switchTab({
+      url: '/pages/cart/index'
+    })
+  },
   onLoad: function (options) {
     this.params.goods_id = options.gid
     this.getGoodDetail()

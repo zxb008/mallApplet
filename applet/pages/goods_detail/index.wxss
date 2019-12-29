@@ -26,6 +26,8 @@
   overflow: hidden;
   white-space: wrap;
   text-overflow: ellipsis;
+  padding-left: 20rpx;
+  font-size: 27rpx;
 }
 .name_row .collect {
   flex: 1;

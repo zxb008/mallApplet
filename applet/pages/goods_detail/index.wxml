@@ -57,7 +57,13 @@
 								</view>
 								客服
 						</button>
-						<view class="action">
+							<button class="action" open-type="contact">
+								<view class="cuIcon-service text-green">
+										<view class="cu-tag badge"></view>
+								</view>
+								分享
+						</button>
+						<view class="action" bind:tap="navigatorCart">
 								<view class="cuIcon-cart">
 										<view class="cu-tag badge">99</view>
 								</view>
