@@ -1,7 +1,16 @@
 <view>
-  <cu-custom bgColor="bg-gradual-red">
-    <view slot="content">购物车</view>
-  </cu-custom>
-  <button class="cu-btn block line-orange lg" bind:tap="getAddress">获取收货地址</button>
-  <cartShop></cartShop>
+	<cu-custom bgColor="bg-gradual-red">
+		<view slot="content">购物车</view>
+	</cu-custom>
+	<view class="contain" wx:if="{{address}}">
+		<view class="name">姓名:{{address.userName}} | 电话:{{address.telNumber}}</view>
+		<view class="address">
+		地址：{{address.provinceName+address.cityName+address.countyName+address.detailInfo}}
+    </view>
+	</view>
+	<view class="btn" wx:else>
+		<button class="cu-btn block line-orange lg" bind:tap="getAddress">获取收货地址</button>
+	</view>
+	<cartShop/>
 </view>
+

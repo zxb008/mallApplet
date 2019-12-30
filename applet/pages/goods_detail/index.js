@@ -71,8 +71,16 @@ Page({
     wx.setStorageSync('carts', carts)
   },
   onLoad: function (options) {
-    this.params.goods_id = options.gid
-    this.getGoodDetail()
+    let carts = wx.getStorageSync('carts') || []
+    let index = carts.findIndex(cart => cart.goods_id === Number(options.gid))
+    if (index !== -1) {
+      this.setData({
+        goods_detail: carts[index]
+      })
+    } else {
+      this.params.goods_id = options.gid
+      this.getGoodDetail()
+    }
   },
 
   /**

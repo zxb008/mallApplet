@@ -10,19 +10,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    address: null
   },
   getAddress() {
     wxGetSetting().then((result1) => {
       const scopeAddress = result1.authSetting['scope.address']
+     
       if (scopeAddress === false) {
         wxOpenSetting();
       }
-      wxAddress().then((result2)=>{
+      // undefined 和 true 的两种情况下，尝试获取地址
+      //仔细思考undefined会出现什么情况呢？
+      
+      wxAddress().then((result2) => {
         wx.setStorageSync('address', result2)
+      },(error2)=>{
+        console.log(error2);
       })
     })
-
   },
   /**
    * 生命周期函数--监听页面加载
@@ -42,7 +47,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const address = wx.getStorageSync('address')
+    console.log(address);
+    this.setData({
+      address
+    })
   },
 
   /**
