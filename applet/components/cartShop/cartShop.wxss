@@ -3,6 +3,8 @@
   height: 180rpx;
   display: flex;
   background-color: #fff;
+  margin-bottom: 10rpx;
+  border-radius: 10rpx;
 }
 .shop .check {
   flex: 1.5;

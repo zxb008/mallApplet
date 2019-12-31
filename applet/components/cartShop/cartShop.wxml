@@ -1,20 +1,20 @@
 <view class="shop">
   <view class="check">
-    <checkbox-group >
-      <checkbox  />
+    <checkbox-group bindchange="handleChange" data-gid="{{propItem.goods_id}}">
+      <checkbox  checked="{{propItem.checked}}" />
     </checkbox-group>
   </view>
-  <view class="img">
-    <image mode="widthFix" src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071005.png"  />
-  </view>
+  <navigator url="/page/goods_detail/index?gid={{propItem.goods_id}}" open-type="navigate" class="img">
+    <image mode="widthFix" src="{{propItem.goods_small_logo}}"  />
+  </navigator> 
   <view class="desc">
-    <view class="name">和山东矿机爱好萨达四大四大是大分三个分大大大单位放弃无法返回任何人拖后腿</view>
+    <view class="name">{{propItem.goods_name}}</view>
     <view class="operating">
-      <view class="price">￥1000</view>
+      <view class="price">￥{{propItem.goods_price}}</view>
       <view class="number">
-        <button size="mini">-</button>
-        <view >1</view>
-         <button size="mini">+</button>
+        <button size="mini" bindtap="reduce" data-gid="{{propItem.goods_id}}">-</button>
+        <view >{{propItem.num}}</view>
+         <button size="mini" bindtap="add" data-gid="{{propItem.goods_id}}">+</button>
       </view>
     </view>
   </view>

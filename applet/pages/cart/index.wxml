@@ -5,12 +5,32 @@
 	<view class="contain" wx:if="{{address}}">
 		<view class="name">姓名:{{address.userName}} | 电话:{{address.telNumber}}</view>
 		<view class="address">
-		地址：{{address.provinceName+address.cityName+address.countyName+address.detailInfo}}
-    </view>
+			地址：{{address.provinceName+address.cityName+address.countyName+address.detailInfo}}
+		</view>
 	</view>
 	<view class="btn" wx:else>
 		<button class="cu-btn block line-orange lg" bind:tap="getAddress">获取收货地址</button>
 	</view>
-	<cartShop/>
+	<view wx:if="{{carts.length === 0}}" class="noShops">
+		<image mode="widthFix" src="../../images/noShops.jpg" />
+	</view>
+	<cartShop wx:for="{{carts}}" propItem="{{item}}" bind:check="itemCheck" bind:reduce="itemReduce" bind:add="itemAdd" />
+	
+	<view class="total">
+		<view class="all">
+			<checkbox-group bindchange="allCheck">
+				<checkbox checked="{{allchecked}}"/>
+			</checkbox-group>
+		</view>
+		<view class="conton">
+		全选
+		</view>
+		<view class="allPrice">
+			合计:￥{{totalPrice}}
+		</view>
+		<view class="order">
+			结算({{totalNum}})
+		</view>
+	</view>
 </view>
 

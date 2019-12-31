@@ -63,6 +63,7 @@ Page({
     } else {
       let { goods_detail } = this.data
       goods_detail.num = 1
+      goods_detail.checked = true
       this.setData({
         goods_detail
       })
