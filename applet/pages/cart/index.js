@@ -172,6 +172,23 @@ Page({
     //2.这时候需要重新计算总数量和价格以及是否勾上全选
     this.setAllCheckPriceNum(carts)
   },
+  pay(){
+    if (this.data.address) {
+      wx.showToast({
+        title: '你还没有获取地址呢！'
+      })
+      return false;
+    }
+    if (this.data.totalNum) {
+      wx.showToast({
+        title: '购物车空空如也！'
+      })
+      return false;
+    }
+    wx.navigateTo({
+      url: '/page/pay/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
