@@ -176,14 +176,14 @@ Page({
     if (!this.data.address) {
       wx.showToast({
         title: '你还没有获取地址呢！',
-        icon:none
+        icon:"none"
       })
       return false;
     }
     if (this.data.totalNum === 0) {
       wx.showToast({
         title: '购物车空空如也！',
-        icon:none
+        icon:"none"
       })
       return false;
     }
