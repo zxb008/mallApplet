@@ -175,13 +175,15 @@ Page({
   order() {
     if (!this.data.address) {
       wx.showToast({
-        title: '你还没有获取地址呢！'
+        title: '你还没有获取地址呢！',
+        icon:none
       })
       return false;
     }
     if (this.data.totalNum === 0) {
       wx.showToast({
-        title: '购物车空空如也！'
+        title: '购物车空空如也！',
+        icon:none
       })
       return false;
     }

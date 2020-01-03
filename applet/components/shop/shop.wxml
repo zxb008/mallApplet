@@ -1,5 +1,5 @@
 <view class="shop">
-  <navigator url="/page/goods_detail/index?gid={{propItem.goods_id}}" open-type="navigate" class="img">
+  <navigator url="/pages/goods_detail/index?gid={{propItem.goods_id}}" open-type="navigate" class="img">
     <image mode="widthFix" src="{{propItem.goods_small_logo}}"  />
   </navigator> 
   <view class="desc">
