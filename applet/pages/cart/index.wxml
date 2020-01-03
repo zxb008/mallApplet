@@ -28,8 +28,8 @@
 		<view class="allPrice">
 			合计:￥{{totalPrice}}
 		</view>
-		<view class="order" bindtap="pay">
-			结算({{totalNum}})
+		<view class="order" bindtap="order">
+		提交订单({{totalNum}})
 		</view>
 	</view>
 </view>

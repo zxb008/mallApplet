@@ -172,21 +172,30 @@ Page({
     //2.这时候需要重新计算总数量和价格以及是否勾上全选
     this.setAllCheckPriceNum(carts)
   },
-  pay(){
-    if (this.data.address) {
+  order() {
+    if (!this.data.address) {
       wx.showToast({
         title: '你还没有获取地址呢！'
       })
       return false;
     }
-    if (this.data.totalNum) {
+    if (this.data.totalNum === 0) {
       wx.showToast({
         title: '购物车空空如也！'
       })
       return false;
     }
+    //循环遍历，给勾选上的商品增加属性order=true
+    //思考为什么要这样写？
+    let { carts } = this.data, oreders = [];
+    carts.forEach(item=>{
+      if (item.checked) {
+        oreders.push(item)
+      }
+    })
+    wx.setStorageSync('oreders', oreders)
     wx.navigateTo({
-      url: '/page/pay/index'
+      url: '/pages/pay/index'
     })
   },
   /**

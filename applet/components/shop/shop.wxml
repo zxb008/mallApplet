@@ -1,0 +1,14 @@
+<view class="shop">
+  <navigator url="/page/goods_detail/index?gid={{propItem.goods_id}}" open-type="navigate" class="img">
+    <image mode="widthFix" src="{{propItem.goods_small_logo}}"  />
+  </navigator> 
+  <view class="desc">
+    <view class="name">{{propItem.goods_name}}</view>
+    <view class="operating">
+      <view class="price">￥{{propItem.goods_price}}</view>
+      <view class="number">
+        <view >x {{propItem.num}}</view>
+      </view>
+    </view>
+  </view>
+</view>
