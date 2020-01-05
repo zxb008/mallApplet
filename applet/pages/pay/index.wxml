@@ -1,28 +1,23 @@
 <view>
-	<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
-		<view slot="backText">返回</view>
-		<view slot="content">支付</view>
-	</cu-custom>
-	<view class="contain" wx:if="{{address}}">
-		<view class="name">姓名:{{address.userName}} | 电话:{{address.telNumber}}</view>
-		<view class="address">
-			地址：{{address.provinceName+address.cityName+address.countyName+address.detailInfo}}
+		<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+				<view slot="backText">返回</view>
+				<view slot="content">支付</view>
+		</cu-custom>
+		<view class="contain" wx:if="{{address}}">
+				<view class="name">姓名:{{address.userName}} | 电话:{{address.telNumber}}</view>
+				<view class="address">
+						地址：{{address.provinceName+address.cityName+address.countyName+address.detailInfo}}
+				</view>
 		</view>
-	</view>
-    <view class="btn" wx:else>
-		<button class="cu-btn block line-orange lg" bind:tap="getAddress">获取收货地址</button>
-	</view>
-	<view wx:if="{{oreders.length === 0}}" class="noShops">
-		<image mode="widthFix" src="../../images/noShops.jpg" />
-	</view>
-	<shop wx:for="{{oreders}}" propItem="{{item}}" />
-	<view class="total">
-		<view class="allPrice">
-			支付:￥{{totalPrice}}
+		<view class="btn" wx:else>
+				<button class="cu-btn block line-orange lg" bind:tap="getAddress">获取收货地址</button>
 		</view>
-		<view class="order" bindtap="pay">
-			结算({{totalNum}})
+		<view wx:if="{{oreders.length === 0}}" class="noShops">
+				<image mode="widthFix" src="../../images/noShops.jpg" />
 		</view>
-	</view>
+		<shop wx:for="{{oreders}}" propItem="{{item}}" />
+		<view class="total">
+				<view class="allPrice">支付:￥{{totalPrice}}</view>
+				<view class="order" bindtap="pay">结算({{totalNum}})</view>
+		</view>
 </view>
-

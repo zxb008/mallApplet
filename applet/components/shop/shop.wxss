@@ -7,7 +7,7 @@
   border-radius: 10rpx;
 }
 .shop .img {
-  flex: 5;
+  flex: 4;
   display: flex;
   flex-direction: column ;
   justify-content: center;
@@ -17,7 +17,7 @@
   width: 60%;
 }
 .shop .desc {
-  flex: 5;
+  flex: 6;
   display: flex;
   flex-wrap: wrap;
 }

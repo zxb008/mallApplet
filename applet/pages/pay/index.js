@@ -4,6 +4,7 @@ import {
   wxAddress,
   wxOpenSetting
 } from '../../utils/index'
+import { request } from '../../request/index';
 Page({
 
   /**
@@ -33,12 +34,92 @@ Page({
     })
   },
   pay() {
+    const token = wx.getStorageSync('token')
     //1.判断是否有token(token是判断用户是否是处于登录状态)
     // 1.1无token，需要跳转到授权页面进行授权,
-
+    if (!token) {
+      wx.navigateTo({
+        url: '/pages/auth/index'
+      })
+      return ;
+    }
     //1.2有token
-    //2.把token放入请求头,订单数据放入请求参数中，创建订单
-    //3.
+    //2.把token放入请求头,订单数据放入请求参数中，调用创建订单接口,获取订单编号
+    //优化请求方法，把header放进去
+    // const header = {Authorization:token} 
+    const order_price = this.data.totalPrice
+    const consignee_addr = this.data.address
+    let goods = []
+    const {oreders} = this.data
+    oreders.forEach(item=>
+      goods.push({
+        goods_id: item.goods_id,
+        goods_number: item.num,
+        goods_price: item.goods_price
+      })
+      )
+      const params = {order_price,consignee_addr,goods}
+      request({
+        url:'/my/orders/create',
+        method:'POST',
+        data:params,
+        // header
+      }).then((res=>{
+        const order_number = res.order_number
+        //3.得到订单编号参数，调用预支付的接口来获取微信支付参数
+        request({
+          url:'/my/orders/req_unifiedorder',
+          method:'POST',
+          data:{order_number},
+          // header
+        }).then((res)=>{
+           //4.调用微信支付的接口
+           wx.requestPayment({
+            timeStamp: res.pay.timeStamp,
+            nonceStr: res.pay.nonceStr,
+            package: res.pay.package,
+            signType: 'MD5',
+            paySign:res.pay.paySign,
+            success: (res)=> {},
+            fail (res) { },
+            complete:()=>{
+              //无论是否支付成功，查看订单的支付状态
+              request({
+                url:'/my/orders/chkOrder',
+                method:'POST',
+                data:{order_number},
+                // header
+              }).then((res)=>{
+                if (res === '支付成功') {
+                  wx.showToast({
+                    title: res,
+                    icon:"none"
+                  })
+                  //支付成功以后
+                  //清除订单缓存oreders
+                  wx.removeStorageSync("oreders")
+                  //清除缓存中carts中checked==true的商品
+                  let carts = wx.getStorageSync('carts')
+                  carts = carts.filter(item=>{
+                    !item.checked
+                  })
+                  wx.setStorageSync('carts', carts)
+                  wx.navigateTo({
+                    url: '/pages/order/index'
+                  })
+                } else {
+                  wx.showToast({
+                    title: '支付失败',
+                    icon:"none"
+                  })
+                }
+              })
+            }
+          })
+        })
+
+      }))
+   
   },
   /**
    * 生命周期函数--监听页面加载

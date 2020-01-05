@@ -1,4 +1,5 @@
 // pages/auth/index.js
+import { request } from '../../request/index'
 Page({
 
   /**
@@ -7,7 +8,34 @@ Page({
   data: {
 
   },
+  //得到用户的信息来获取token
+  handleGetUserInfo(e) {
+    const { encryptedData, rawData, iv, signature } = e.detail;
+    wx.login({
+      success: (res) => {
+        if (res.code) {
+          const { code } = res
+          const params = { encryptedData, rawData, iv, signature, code }
+          request({
+            url:"/users/wxlogin",
+            data: params,
+            method: "post"
+          }).then(
+            (res) => {
+              const { token } = res
+              wx.setStorageSync('token', token)
+              wx.navigateBack({
+                delta: 1 // 回退前 delta(默认为1) 页面
+              })
+            }
+          )
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
 
+  },
   /**
    * 生命周期函数--监听页面加载
    */

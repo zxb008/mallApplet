@@ -187,8 +187,9 @@ Page({
       })
       return false;
     }
-    //循环遍历，给勾选上的商品增加属性order=true
-    //思考为什么要这样写？
+   
+    //思考为什么药新设置一个缓存orders，因为点击支付以后，不一定会继续支付，而是会产生一个订单，这个订单有可能是待支付或者已经支付的
+    //我的页面在后面会添加一个待支付的按钮，点击进去可以看到未支付的订单
     let { carts } = this.data, oreders = [];
     carts.forEach(item=>{
       if (item.checked) {
