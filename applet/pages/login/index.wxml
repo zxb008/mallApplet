@@ -1,2 +1,9 @@
-<!--pages/login/index.wxml-->
-<text>pages/login/index.wxml</text>
+<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">登录</view>
+</cu-custom>
+<view class="btn">
+  <button class="cu-btn block line-orange lg" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">
+    登录
+  </button>
+</view>
