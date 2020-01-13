@@ -1,2 +1,41 @@
-<!--pages/collect/index.wxml-->
-<text>pages/collect/index.wxml</text>
+<view>
+    <cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+      <view slot="backText">返回</view>
+      <view slot="content">收藏列表</view>
+    </cu-custom>
+    <tabs prop-tabsList="{{tabsList}}" bind:setTab="setTab">
+      <view wx:if="{{id === 1}}">
+       
+      </view>
+      <view class="cu-list menu-avatar" wx:if="{{id === 2}}">
+          <view
+           class="cu-item "
+           style="margin-bottom:10rpx;"
+           wx:for="{{collects}}"
+           wx:key="goods_id"
+           bind:tap="navigatorGoodDetail"
+           data-gid="{{item.goods_id}}"
+          >
+            <!-- <navigator url="/pages/goods_detail/index?gid={{item.goods_id}}" open_type="navigator"> -->
+            <view class="cu-avatar radius lg" style="background-image:url({{item.goods_small_logo ? item.goods_small_logo:'../../images/cart.jpg'}});" />
+            <view class="content">
+              <view class="text-gray text-sm flex">
+                <text class="text-cut">{{item.goods_name}}</text>
+              </view>
+              <view class="text-pink">
+                <text class="text-cut" style="color:#F33942">价格:{{item.goods_price}}元</text>
+              </view>
+            </view>
+            <!-- </navigator> -->
+          </view>
+        </view>
+      <view wx:elif="{{id === 3}}">
+        
+      </view>
+      <view wx:elif="{{id === 4}}">
+       
+      </view>
+    </tabs>
+  </view>
+  
+  

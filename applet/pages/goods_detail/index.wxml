@@ -49,8 +49,9 @@
 	</view>
 	<view class="name_row">
 		<view class="name">{{goods_detail.goods_name}}</view>
-		<view class="collect">
-			<text class="iconfont icon-collect"/>
+		<view class="collect" bind:tap="handleCollect">
+			<text class="iconfont icon-collect1 " style="color: red;" wx:if="{{isCollect}}"/>
+			<text class="iconfont icon-collect "  wx:else />
 			<text>收藏</text>
 		</view>
 	</view>

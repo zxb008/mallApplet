@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    collectNum:0,
     bgc:'#FFFFFF',
     userInfo:null
   },
@@ -31,11 +32,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const collects = wx.getStorageSync('collects') || [];
     const userInfo = wx.getStorageSync('userInfo') || null;
     if (userInfo) {
       this.setData({
         userInfo,
-        bgc:'#F1265B'
+        bgc:'#F1265B',
+        collectNum:collects.length
       })
     }
   },

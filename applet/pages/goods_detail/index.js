@@ -18,6 +18,34 @@ Page({
     goods_id: null
   },
   imageList: [],
+  handleCollect(){
+    let isCollect = false;
+    let collects = wx.getStorageSync('collects') || []
+    let index = collects.findIndex(item=>item.goods_id === this.data.goods_detail.goods_id)
+    if (index !== -1) {
+      //已经收藏过该商品，那么应该删除
+      collects.splice(index,index)
+      wx.showToast({
+        title: '取消成功',
+        icon: 'none',
+        duration: 2000
+      })
+      isCollect = false;
+    } else {
+      //没有收藏过该商品，添加
+      collects.push(this.data.goods_detail)
+      wx.showToast({
+        title: '收藏成功',
+        icon: 'none',
+        duration: 2000
+      })
+      isCollect = true;
+    }
+    this.setData({
+      isCollect
+    })
+    wx.setStorageSync('collects', collects)
+  },
   getGoodDetail() {
     request({
       url: '/goods/detail',

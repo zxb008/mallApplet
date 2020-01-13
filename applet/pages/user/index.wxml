@@ -11,28 +11,36 @@
   </view>
   <view class="padding flex text-center text-grey bg-white shadow-warp">
     <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-orange">0</view>
-      <view class="margin-top-sm">
-        收藏店铺
-      </view>
+      <navigator class="content" url="/pages/collect/index?type=1" hover-class="none">
+        <view class="text-xxl text-orange">0</view>
+        <view class="margin-top-sm">
+          收藏店铺
+        </view>
+      </navigator>
     </view>
     <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-blue">0</view>
-      <view class="margin-top-sm">
-        收藏商品
-      </view>
+      <navigator class="content" url="/pages/collect/index?type=2" hover-class="none">
+        <view class="text-xxl text-blue">{{collectNum}}</view>
+        <view class="margin-top-sm">
+          收藏商品
+        </view>
+      </navigator>
     </view>
     <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-green">0</view>
-      <view class="margin-top-sm">
-        关注商品
-      </view>
+      <navigator class="content" url="/pages/collect/index?type=3" hover-class="none">
+        <view class="text-xxl text-green">0</view>
+        <view class="margin-top-sm">
+          关注商品
+        </view>
+      </navigator>
     </view>
     <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-red">0</view>
-      <view class="margin-top-sm">
-        我的足迹
-      </view>
+      <navigator class="content" url="/pages/collect/index?type=4" hover-class="none">
+        <view class="text-xxl text-red">0</view>
+        <view class="margin-top-sm">
+          我的足迹
+        </view>
+      </navigator>
     </view>
   </view>
   <view class="padding flex text-center text-grey bg-white shadow-warp">
