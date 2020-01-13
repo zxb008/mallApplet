@@ -1,9 +1,9 @@
 <scroll-view scroll-y class="scrollPage">
   <view class="UCenter-bg" style="background-color:{{bgc}};">
     <view wx:if="{{userInfo}}" class="user">
-      <view class="cu-avatar xl round " style="background-image:url({{userInfo.avatarUrl}});"></view>
+      <view class="cu-avatar xl round " style="background-image:url({{userInfo.avatarUrl}});" />
       <view class="text-xl">{{userInfo.nickName}}</view>
-      <image src="../../images/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+      <image src="../../images/wave.gif" mode="scaleToFill" class="gif-wave" />
     </view>
     <button class="cu-btn bg-red margin-tb-sm lg" style="opacity:0.8;" bind:tap="handleLogin" wx:else>
       登录
@@ -11,71 +11,95 @@
   </view>
   <view class="padding flex text-center text-grey bg-white shadow-warp">
     <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-orange">{{visitTotal}}</view>
+      <view class="text-xxl text-orange">0</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-attentionfill"></text>
-        我的订单
+        收藏店铺
       </view>
     </view>
     <view class="flex flex-sub flex-direction solid-right">
-      <view class="text-xxl text-blue">{{starCount}}</view>
+      <view class="text-xxl text-blue">0</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-favorfill"></text>
-        待付款
+        收藏商品
       </view>
     </view>
     <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-green">{{forksCount}}</view>
+      <view class="text-xxl text-green">0</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-fork"></text>
-        待收货
+        关注商品
       </view>
     </view>
     <view class="flex flex-sub flex-direction">
-      <view class="text-xxl text-green">{{forksCount}}</view>
+      <view class="text-xxl text-red">0</view>
       <view class="margin-top-sm">
-        <text class="cuIcon-fork"></text>
-        退款/退货
+        我的足迹
       </view>
+    </view>
+  </view>
+  <view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+      <navigator class="content" url="/pages/order/index?type=1" hover-class="none">
+        <text class="iconfont icon-order" style="font-size:20px;" />
+        <view class="margin-top-sm">
+          全部订单
+        </view>
+      </navigator>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <navigator class="content" url="/pages/order/index?type=2" hover-class="none">
+        <text class="iconfont icon-zhenhuichongtubiaozhizuo-kuozhan-" style="font-size:20px;" />
+        <view class="margin-top-sm">
+          待付款
+        </view>
+      </navigator>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <navigator class="content" url="/pages/order/index?type=3" hover-class="none">
+        <text class="iconfont icon-car" style="font-size:20px;" />
+        <view class="margin-top-sm">
+          待收货
+        </view>
+      </navigator>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <navigator class="content" url="" hover-class="none">
+        <text class="iconfont icon-refund" style="font-size:20px;" />
+        <view class="margin-top-sm">
+          退款/退货
+        </view>
+      </navigator>
     </view>
   </view>
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
-      <view class="content" bindtap="CopyLink" data-link="https://github.com/weilanwl/ColorUI">
-        <text class="cuIcon-github text-grey"></text>
-        <text class="text-grey">GitHub</text>
-      </view>
-    </view>
-    <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/about/about" hover-class="none">
-        <image src="/images/logo.png" class="png" mode="aspectFit"></image>
-        <text class="text-grey">关于ColorUI组件库</text>
+      <navigator class="content" url="/pages/about/log/log" hover-class="none">
+        <text class="cuIcon-formfill text-green" />
+        <text class="text-grey">收货地址管理</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/log/log" hover-class="none">
-        <text class="cuIcon-formfill text-green"></text>
-        <text class="text-grey">日志</text>
+        <text class="cuIcon-appreciatefill text-red" />
+        <text class="text-grey">联系客服</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
-      <view class="content" bindtap="showQrcode">
-        <text class="cuIcon-appreciatefill text-red"></text>
-        <text class="text-grey">赞赏支持</text>
-      </view>
-    </view>
-    <view class="cu-item arrow">
       <button class="cu-btn content" open-type="feedback">
-        <text class="cuIcon-writefill text-cyan"></text>
+        <text class="cuIcon-writefill text-cyan" />
         <text class="text-grey">意见反馈</text>
       </button>
     </view>
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/test/list" hover-class="none">
-        <text class="cuIcon-creativefill text-orange"></text>
-        <text class="text-grey">Bug测试</text>
+        <text class="cuIcon-creativefill text-orange" />
+        <text class="text-grey">关于我们</text>
+      </navigator>
+    </view>
+    <view class="cu-item arrow">
+      <navigator class="content" url="/pages/about/about/about" hover-class="none">
+        <text class="cuIcon-creativefill text-orange" />
+        <text class="text-grey">推荐应用</text>
       </navigator>
     </view>
   </view>
-  <view class="cu-tabbar-height"></view>
+  <view class="cu-tabbar-height" />
 </scroll-view>

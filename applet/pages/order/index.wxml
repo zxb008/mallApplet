@@ -1,2 +1,15 @@
-<!--pages/order/index.wxml-->
-<text>pages/order/index.wxml</text>
+<view>
+	<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+		<view slot="backText">返回</view>
+		<view slot="content">订单页面</view>
+	</cu-custom>
+	<tabs prop-tabsList="{{tabsList}}" bind:setTab="setTab">
+		<view class="cu-list menu-avatar" wx:if="{{id === 1}}">
+			全部
+		</view>
+		<view wx:elif="{{id === 2}}">销量</view>
+		<view wx:elif="{{id === 3}}">价格</view>
+		<view wx:elif="{{id === 4}}">口碑</view>
+	</tabs>
+</view>
+
