@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isCollect:false,
     modalName: null,
     goods_detail: {}
   },
@@ -24,8 +25,11 @@ Page({
     }).then((result) => {
       this.imageList = result.pics
       result.goods_introduce = result.goods_introduce.replace(/\.webp/g, '.jpg')
+      let collects = wx.getStorageSync('collects') || []
+      let isCollect = collects.some(item => item.goods_id === result.goods_id)
       this.setData({
-        goods_detail: result
+        goods_detail: result,
+        isCollect
       })
     })
   },
@@ -72,16 +76,6 @@ Page({
     wx.setStorageSync('carts', carts)
   },
   onLoad: function (options) {
-    let carts = wx.getStorageSync('carts') || []
-    let index = carts.findIndex(cart => cart.goods_id === Number(options.gid))
-    if (index !== -1) {
-      this.setData({
-        goods_detail: carts[index]
-      })
-    } else {
-      this.params.goods_id = options.gid
-      this.getGoodDetail()
-    }
   },
 
   /**
@@ -95,6 +89,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const Pages = getCurrentPages();
+    const currPage = Pages[Pages.length - 1];
+    const { gid } = currPage.options;
+    let carts = wx.getStorageSync('carts') || []
+    let index = carts.findIndex(cart => cart.goods_id === Number(gid))
+    if (index !== -1) {
+      let collects = wx.getStorageSync('collects') || []
+      let isCollect = collects.some(item => item.goods_id === carts[index].goods_id)
+      this.setData({
+        goods_detail: carts[index],
+        isCollect
+      })
+
+    } else {
+      this.params.goods_id = gid
+      this.getGoodDetail()
+    }
 
   },
 

@@ -82,13 +82,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // const token = wx.getStorageSync('token')
-    // if (!token) {
-    //   wx.navigateTo({
-    //     url: '/pages/auth/index'
-    //   })
-    //   return ;
-    // }
+    const token = wx.getStorageSync('token')
+    if (!token) {
+      wx.navigateTo({
+        url: '/pages/auth/index'
+      })
+      return ;
+    }
     //然后根据页面栈来得到传递给这个页面的参数
     const Pages = getCurrentPages();
     const currPage = Pages[Pages.length - 1];
