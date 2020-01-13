@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goodList: [],
+    orderList: [],
     id: 1,
     tabsList: [
       {
@@ -31,10 +31,10 @@ Page({
       }
     ]
   },
-  setTab(e) {
+  setTabTrue(id){
     let { tabsList } = this.data;
     tabsList.forEach(item => {
-      if (item.id === e.detail.id) {
+      if (item.id === id) {
         item.active = true
       } else {
         item.active = false
@@ -42,29 +42,59 @@ Page({
     });
     this.setData({
       tabsList,
-      id: e.detail.id
+      id
     })
   },
-  
+  setTab(e) {
+    this.setTabTrue(e.detail.id)
+    this.getOrderList(e.detail.id)
+  },
+  getOrderList(type){
+    request({
+      url:'/my/orders/all',
+      data:{type}
+    }).then((res)=>{
+      if (res) {
+        this.setData({
+          orderList:res.orders.map(item=>({...item,"create_time_cn":(new Date(item.create_time*1000).toLocaleString())}))
+        })
+      }else{
+        console.log(res);
+      }
+    },(error)=>{
+      console.log(error);
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.params.cid = options.cid;
-    this.getGoodList()
+   
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    // const token = wx.getStorageSync('token')
+    // if (!token) {
+    //   wx.navigateTo({
+    //     url: '/pages/auth/index'
+    //   })
+    //   return ;
+    // }
+    //然后根据页面栈来得到传递给这个页面的参数
+    const Pages = getCurrentPages();
+    const currPage = Pages[Pages.length - 1];
+    const { type } = currPage.options
+    this.setTabTrue(Number(type))
+    this.getOrderList(type)
   },
 
   /**
@@ -85,29 +115,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.setData({
-      goodList:[]
-    })
-    this.params.pagenum = 1
-    this.getGoodList()
+  
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this.params.pagenum++;
-    if (this.params.pagenum > this.totalPage) {
-      wx.showToast({
-        title: '人家也是有底线的!!!',
-        icon: 'none',
-        image:'../../images/cry.png',
-        mask:true,
-        duration: 2000
-      })
-    }else{
-      this.getGoodList()
-    }
+  
   },
 
   /**

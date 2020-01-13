@@ -12,6 +12,6 @@
 			</view>
 		</view>
 	</scroll-view>
-		<slot></slot>
+	<slot></slot>
 </view>
 

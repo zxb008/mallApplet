@@ -4,12 +4,70 @@
 		<view slot="content">订单页面</view>
 	</cu-custom>
 	<tabs prop-tabsList="{{tabsList}}" bind:setTab="setTab">
-		<view class="cu-list menu-avatar" wx:if="{{id === 1}}">
-			全部
+		<view class="order" wx:if="{{id === 1}}">
+			<view class="orderItem" wx:for="{{orderList}}" wx:key="order_id">
+				<view class="order_num">
+					<view class="order_num_text">订单编号</view>
+					<view class="order_num_value">{{item.order_number}}</view>
+				</view>
+				<view class="order_price">
+					<view class="order_price_text">订单价格</view>
+					<view class="order_price_value">￥{{item.order_price}}</view>
+				</view>
+				<view class="order_time">
+					<view class="order_time_text">订单日期</view>
+					<view class="order_time_value">{{item.create_time_cn}}</view>
+				</view>
+			</view>
 		</view>
-		<view wx:elif="{{id === 2}}">销量</view>
-		<view wx:elif="{{id === 3}}">价格</view>
-		<view wx:elif="{{id === 4}}">口碑</view>
+		<view class="order" wx:elif="{{id === 2}}">
+			<view class="orderItem" wx:for="{{orderList}}" wx:key="order_id">
+				<view class="order_num">
+					<view class="order_num_text">订单编号</view>
+					<view class="order_num_value">{{item.order_number}}</view>
+				</view>
+				<view class="order_price">
+					<view class="order_price_text">订单价格</view>
+					<view class="order_price_value">￥{{item.order_price}}</view>
+				</view>
+				<view class="order_time">
+					<view class="order_time_text">订单日期</view>
+					<view class="order_time_value">{{item.create_time_cn}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="order" wx:elif="{{id === 3}}">
+			<view class="orderItem" wx:for="{{orderList}}" wx:key="order_id">
+				<view class="order_num">
+					<view class="order_num_text">订单编号</view>
+					<view class="order_num_value">{{item.order_number}}</view>
+				</view>
+				<view class="order_price">
+					<view class="order_price_text">订单价格</view>
+					<view class="order_price_value">￥{{item.order_price}}</view>
+				</view>
+				<view class="order_time">
+					<view class="order_time_text">订单日期</view>
+					<view class="order_time_value">{{item.create_time_cn}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="order" wx:elif="{{id === 4}}">
+			<view class="orderItem" wx:for="{{orderList}}" wx:key="order_id">
+				<view class="order_num">
+					<view class="order_num_text">订单编号</view>
+					<view class="order_num_value">{{item.order_number}}</view>
+				</view>
+				<view class="order_price">
+					<view class="order_price_text">订单价格</view>
+					<view class="order_price_value">￥{{item.order_price}}</view>
+				</view>
+				<view class="order_time">
+					<view class="order_time_text">订单日期</view>
+					<view class="order_time_value">{{item.create_time_cn}}</view>
+				</view>
+			</view>
+		</view>
 	</tabs>
 </view>
 
