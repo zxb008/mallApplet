@@ -10,12 +10,6 @@ Page({
     goods: []
   },
   timer:-1,
-  debounce: function (func, wait) {
-    return () => {
-      clearTimeout(timer);
-      timer = setTimeout(func, wait);
-    };
-  },
   clearContain() {
     this.setData({
       goods: []
@@ -43,7 +37,10 @@ Page({
     if (!value.trim()) {
       return;
     }
-    this.debounce(this.getGoods(value).bind(this), 2500)()
+    clearTimeout(this.timer)
+    this.timer = setTimeout(()=>{
+      this.getGoods(value)
+    },2500)
   },
   /**
    * 生命周期函数--监听页面加载
