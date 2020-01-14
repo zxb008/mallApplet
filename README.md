@@ -3,6 +3,23 @@
 
 ## 技术栈
 colorUI + es6 + 原生小程序
+## 页面预览
+```javascript
+"pages": [
+    "pages/index/index",
+    "pages/category/index",
+    "pages/goods_list/index",
+    "pages/goods_detail/index",
+    "pages/cart/index",
+    "pages/collect/index",
+    "pages/order/index",
+    "pages/search/index",
+    "pages/user/index",
+    "pages/login/index",
+    "pages/auth/index",
+    "pages/pay/index"
+  ],
+```
 ## 实现功能
 ### 首页
 * 搜索组件
