@@ -7,12 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goods: []
+    goods: [],
+    value:""
   },
   timer:-1,
   clearContain() {
     this.setData({
-      goods: []
+      goods: [],
+      value:""
     })
   },
   handNav(e) {
@@ -35,6 +37,9 @@ Page({
   handleSearch(e) {
     const { value } = e.detail
     if (!value.trim()) {
+      this.setData({
+        goods: []
+      })
       return;
     }
     clearTimeout(this.timer)

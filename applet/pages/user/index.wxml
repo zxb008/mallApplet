@@ -79,13 +79,13 @@
   </view>
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
+      <navigator class="content" url="" hover-class="none">
         <text class="cuIcon-formfill text-green" />
         <text class="text-grey">收货地址管理</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
+      <navigator class="content" url="" hover-class="none">
         <text class="cuIcon-appreciatefill text-red" />
         <text class="text-grey">联系客服</text>
       </navigator>
@@ -97,13 +97,13 @@
       </button>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/test/list" hover-class="none">
+      <navigator class="content" url="" hover-class="none">
         <text class="cuIcon-creativefill text-orange" />
         <text class="text-grey">关于我们</text>
       </navigator>
     </view>
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/about/about" hover-class="none">
+      <navigator class="content" url="" hover-class="none">
         <text class="cuIcon-creativefill text-orange" />
         <text class="text-grey">推荐应用</text>
       </navigator>

@@ -8,7 +8,7 @@
   <!-- 轮播 -->
 
   <swiper class="card-swiper DotStyle" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
-    <navigator url="{{item.navigator_url}}" open_type="{{item.open_type}}" wx:for="{{swiperList}}" wx:key="{{index}}">
+    <navigator url="{{item.navigator_url}}" open-type="{{item.open-type}}" wx:for="{{swiperList}}" wx:key="{{index}}">
       <swiper-item class="{{cardCur==index?'cur':''}}">
         <view class="swiper-item">
           <image src="{{item.image_src}}" mode="aspectFill"></image>
@@ -17,7 +17,7 @@
     </navigator>
   </swiper>
   <!-- <swiper class="screen-swiper DotStyle" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-    <navigator url="{{item.navigator_url}}" open_type="{{item.open_type}}" wx:for="{{swiperList}}" wx:key="{{index}}">
+    <navigator url="{{item.navigator_url}}" open-type="{{item.open-type}}" wx:for="{{swiperList}}" wx:key="{{index}}">
       <swiper-item>
         <image src="{{item.image_src}}" mode="aspectFill"></image>
       </swiper-item>
@@ -25,9 +25,9 @@
   </swiper> -->
   <!-- 导航 -->
   <view class="nav">
-    <view class="nav_item" url="{{item.navigator_url}}" open_type="{{item.open_type}}" wx:for="{{navigationList}}" wx:key="{{index}}">
+    <navigator class="nav_item" url="/pages/category/index" open-type="switchTab" wx:for="{{navigationList}}" >
       <image mode="widthFix" src="{{item.image_src}}"></image>
-    </view>
+    </navigator>
   </view>
   <!-- 楼层 -->
   <view class="floor" wx:for="{{floorList}}" wx:for-item="item1" wx:for-index="index1" wx:key="{{index1}}">
@@ -37,7 +37,7 @@
     </view>
     <!-- 内容 -->
     <view class="floor_list">
-      <navigator url="{{item.navigator_url}}" open_type="{{item.open_type}}" wx:for="{{item1.product_list}}" wx:for-index="index2" wx:key="{{index2}}">
+      <navigator url="{{item.navigator_url}}"  wx:for="{{item1.product_list}}" wx:for-index="index2" wx:key="{{index2}}">
         <image mode="{{ index2 === 0 ? 'widthFix' : 'scaleToFill'}}" src="{{item.image_src}}"></image>
       </navigator>
     </view>

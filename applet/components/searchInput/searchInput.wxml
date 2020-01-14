@@ -1,6 +1,6 @@
 <view class="box">
   <view class="cu-bar search bg-gradual-red">
-    <view class="cu-avatar round" style="background-image:url(https://image.weilanwl.com/img/square-2.jpg);"></view>
+    <view class="cu-avatar round" style="background-image:url({{userInfo.avatarUrl?userInfo.avatarUrl:'https://image.weilanwl.com/img/square-2.jpg'}});"></view>
     <view class="search-form round" bindtap="handleNav">
       <text class="cuIcon-search"></text>
         搜索

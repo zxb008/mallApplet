@@ -7,7 +7,7 @@
 		<view class="cu-bar search bg-white">
 			<view class="search-form round"style="width:80%;">
 				<text class="cuIcon-search"/>
-				<input type="text" placeholder="搜索图片、文章、视频" confirm-type="search"  bindinput="handleSearch"/>
+				<input value="{{value}}" type="text" placeholder="搜索图片、文章、视频" confirm-type="search"  bindinput="handleSearch"/>
 			</view>
 			<view class="action" style="width:20%;" bindtap="clearContain">
 				<view class="cu-btn bg-red shadow-blur round">清空</view>
